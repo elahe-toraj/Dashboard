@@ -11,10 +11,10 @@ function App() {
   return (
     <Router>
       <div style={{ display: 'flex', direction: 'rtl' }}>
-        {/* Sidebar سمت راست */}
+  
         <Sidebar />
 
-        {/* محتوای اصلی شامل Header و صفحات */}
+     
         <div style={{ flex: 1 }}>
           <Header />
           <div style={{ padding: '20px' }}>
