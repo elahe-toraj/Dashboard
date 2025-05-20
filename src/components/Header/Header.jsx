@@ -1,23 +1,21 @@
-// src/components/Header.jsx
-import { Bell, Search, User } from 'lucide-react';
+import { FaUser, FaSearch, FaBell } from 'react-icons/fa';
 import './Header.css';
 
-const Header = () => {
+function Header({ isSidebarOpen }) {
   return (
-    <header className="header">
-
+    <header className={`header ${isSidebarOpen ? 'sidebar-open' : 'sidebar-collapsed'}`}>
       <div className="header-left">
-        <Search size={20} className="icon" />
-        <Bell size={20} className="icon" />
-        
+        {/* این بخش الان در چپ صفحه قرار می‌گیرد */}
+        <FaUser className="icon" />
+        <span>کاربر باترفلایلی</span>
+        <FaSearch className="icon" />
+        <FaBell className="icon" />
       </div>
-
       <div className="header-right">
-        <span className="username">محمدی</span>
-        <User size={20} />
+        {/* اگر چیزی خواستی در راست قرار بگیره بعداً اینجا بذار */}
       </div>
     </header>
   );
-};
+}
 
 export default Header;

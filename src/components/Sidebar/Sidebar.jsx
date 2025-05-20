@@ -1,31 +1,30 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Home, AppWindow, Calendar, DollarSign, Users, Menu } from 'lucide-react';
+import { NavLink } from 'react-router-dom';
 import './Sidebar.css';
 
-const Sidebar = () => {
-  const { pathname } = useLocation();
-
-  const menuItems = [
-    { path: '/', label: 'خانه' },
-    { path: '/apps', label: 'برنامه‌ها' },
-    { path: '/schedule', label: 'برنامه کاری' },
-    { path: '/finance', label: 'مدیریت مالی' },
-    { path: '/teammates', label: 'همکاران' },
-  ];
-
+const Sidebar = ({ isOpen, toggleSidebar }) => {
   return (
-    <div className="sidebar">
-      <div className="logo">باترفلایلی</div>
-      <ul>
-        {menuItems.map(item => (
-          <li key={item.path}>
-            <Link
-              to={item.path}
-              className={pathname === item.path ? 'active' : ''}
-            >
-              {item.label}
-            </Link>
-          </li>
-        ))}
+    <div className={`sidebar ${isOpen ? 'open' : 'collapsed'}`}>
+      <div className="logo-section">
+        <Menu onClick={toggleSidebar} className="menu-toggle" />
+        {isOpen && <span className="logo-text">باترفلایلی</span>}
+      </div>
+      <ul className="nav-list">
+        <NavLink to="/" className={({ isActive }) => isActive ? 'nav-item active' : 'nav-item'}>
+          <li><Home /> {isOpen && 'خانه'}</li>
+        </NavLink>
+        <NavLink to="/apps" className={({ isActive }) => isActive ? 'nav-item active' : 'nav-item'}>
+          <li><AppWindow /> {isOpen && 'برنامه‌ها'}</li>
+        </NavLink>
+        <NavLink to="/schedule" className={({ isActive }) => isActive ? 'nav-item active' : 'nav-item'}>
+          <li><Calendar /> {isOpen && 'برنامه‌کاری'}</li>
+        </NavLink>
+        <NavLink to="/finance" className={({ isActive }) => isActive ? 'nav-item active' : 'nav-item'}>
+          <li><DollarSign /> {isOpen && 'مدیریت مالی'}</li>
+        </NavLink>
+        <NavLink to="/teammates" className={({ isActive }) => isActive ? 'nav-item active' : 'nav-item'}>
+          <li><Users /> {isOpen && 'همکاران'}</li>
+        </NavLink>
       </ul>
     </div>
   );
