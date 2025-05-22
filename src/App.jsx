@@ -20,7 +20,15 @@ function App() {
       <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
 
       <div style={{ display: 'flex', direction: 'rtl', paddingTop: '60px' }}>
-        <div style={{ flex: 1, paddingRight: `${sidebarWidth}px`, padding: '20px' }}>
+        <div
+          style={{
+            flex: 1,
+            paddingRight: `${sidebarWidth}px`,
+            padding: '20px',
+            height: 'calc(100vh - 60px)',
+            overflowY: 'auto',
+          }}
+        >
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/apps" element={<Apps />} />
