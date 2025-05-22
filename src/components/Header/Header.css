@@ -27,6 +27,7 @@
   align-items: center;
   gap: 8px;
   color: #0d6efd;
+  position: relative;
 }
 
 .header-right {
@@ -45,4 +46,60 @@
 
 .icon:hover {
   color: #0d6efd;
+}
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.user-info:focus {
+  outline: none;
+  outline-offset: 2px;
+}
+
+/* منوی کشویی */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  color: #0d6efd;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 180px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  margin-top: 8px;
+  z-index: 2000;
+  font-weight: normal;
+}
+
+/* هر آیتم داخل منو */
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.dropdown-item:hover {
+  background-color: #f0f0f0;
+}
+
+/* رنگ و استایل خروج */
+.dropdown-item.logout {
+  color: red;
+  font-weight: bold;
+}
+
+.dropdown-item.logout:hover {
+  background-color: #ffd6d6;
+}
+
+.dropdown-icon {
+  font-size: 18px;
 }
